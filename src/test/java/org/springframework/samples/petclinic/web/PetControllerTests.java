@@ -53,6 +53,8 @@ public class PetControllerTests {
         given(this.clinicService.findPetTypes()).willReturn(Lists.newArrayList(cat));
         given(this.clinicService.findOwnerById(TEST_OWNER_ID)).willReturn(new Owner());
         given(this.clinicService.findPetById(TEST_PET_ID)).willReturn(new Pet());
+                System.out.println("Hello, World!");
+
     }
 
     @Test
@@ -100,6 +102,7 @@ public class PetControllerTests {
             .param("name", "Betty")
             .param("type", "hamster")
             .param("birthDate", "2015/02/12")
+                        
         )
             .andExpect(status().is3xxRedirection())
             .andExpect(view().name("redirect:/owners/{ownerId}"));
